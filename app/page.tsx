@@ -1,3 +1,4 @@
+import { BookingModal } from "@/components/hernia/BookingModal";
 import { BenefitsSection } from "@/components/hernia/BenefitsSection";
 import { BeforeAfterSection } from "@/components/hernia/BeforeAfterSection";
 import { ConsultationSection } from "@/components/hernia/ConsultationSection";
@@ -34,6 +35,7 @@ export default function Home() {
       <FaqSection />
       <Footer />
       <StickyBar />
+      <BookingModal />
     </>
   );
 }

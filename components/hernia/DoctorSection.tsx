@@ -8,8 +8,9 @@ export function DoctorSection() {
     <section className="sec" id="doctor">
       <div className="wrap">
         <Reveal className="doc-grid">
-          <div className="doc-photo">
-            <div className="ph" style={{ display: "flex", alignItems: "center", justifyContent: "center",minHeight: "620px" }}>
+          {/* Desktop / tablet: photo in left column */}
+          <div className="doc-photo doc-photo-desktop">
+            <div className="ph" style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "620px", overflow: "hidden" }}>
               <img
                 src="https://res.cloudinary.com/dthj7fakc/image/upload/v1781681953/dr-preethi-mrinalini_wmgdmk.webp"
                 alt="Dr. Preethi Mrinalini"
@@ -37,6 +38,16 @@ export function DoctorSection() {
                 affects their quality of life.
               </b>
             </p>
+            {/* Mobile only: photo between bio and stats */}
+            <div className="doc-photo doc-photo-mobile">
+              <div className="ph" style={{ display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+                <img
+                  src="https://res.cloudinary.com/dthj7fakc/image/upload/v1781681953/dr-preethi-mrinalini_wmgdmk.webp"
+                  alt="Dr. Preethi Mrinalini"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "bottom", borderRadius: "inherit" }}
+                />
+              </div>
+            </div>
             <div className="stats">
               <StatCounter value={2000} suffix="+" label="Patients guided" />
               <StatCounter value={15} suffix="+" label="Years of experience" />

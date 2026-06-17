@@ -1,3 +1,5 @@
+"use client";
+
 import {
   BoltIcon,
   CircleCheckIcon,
@@ -41,7 +43,31 @@ const benefits = [
   },
 ];
 
+function ArrowLeft() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  );
+}
+
+function ArrowRight() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="9 6 15 12 9 18" />
+    </svg>
+  );
+}
+
 export function BenefitsSection() {
+  function scroll(dir: "prev" | "next") {
+    const track = document.querySelector<HTMLElement>(".ben-carousel-track");
+    if (!track) return;
+    const card = track.querySelector<HTMLElement>(".ben");
+    const step = (card?.offsetWidth ?? 260) + 14;
+    track.scrollBy({ left: dir === "next" ? step : -step, behavior: "smooth" });
+  }
+
   return (
     <section className="sec" id="benefits">
       <div className="wrap">
@@ -54,6 +80,7 @@ export function BenefitsSection() {
             The first step is simply understanding which type of hernia you
             have. From there, modern approaches can offer:
           </p>
+          {/* Desktop: grid */}
           <div className="ben-grid">
             {benefits.map((benefit) => (
               <div className="ben" key={benefit.title}>
@@ -64,6 +91,25 @@ export function BenefitsSection() {
             ))}
           </div>
         </Reveal>
+      </div>
+
+      {/* Mobile + tablet: arrow carousel */}
+      <div className="ben-carousel">
+        <button className="ben-arrow" onClick={() => scroll("prev")} aria-label="Previous">
+          <ArrowLeft />
+        </button>
+        <div className="ben-carousel-track">
+          {benefits.map((benefit) => (
+            <div className="ben" key={benefit.title}>
+              <div className="ic">{benefit.icon}</div>
+              <h4>{benefit.title}</h4>
+              <p>{benefit.copy}</p>
+            </div>
+          ))}
+        </div>
+        <button className="ben-arrow" onClick={() => scroll("next")} aria-label="Next">
+          <ArrowRight />
+        </button>
       </div>
     </section>
   );

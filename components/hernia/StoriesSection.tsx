@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef, useState } from "react";
 import { Reveal } from "./Reveal";
 
 const stories = [
@@ -16,6 +19,23 @@ const stories = [
 ];
 
 export function StoriesSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  function handleScroll() {
+    const el = scrollRef.current;
+    if (!el) return;
+    const index = Math.round(el.scrollLeft / (el.scrollWidth / stories.length));
+    setActiveIndex(Math.min(index, stories.length - 1));
+  }
+
+  function goTo(index: number) {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollTo({ left: (el.scrollWidth / stories.length) * index, behavior: "smooth" });
+    setActiveIndex(index);
+  }
+
   return (
     <section className="sec" id="stories">
       <div className="wrap">
@@ -24,7 +44,7 @@ export function StoriesSection() {
           <h2 className="section-title">
             People who waited too long - and what changed after.
           </h2>
-          <div className="vids">
+          <div className="vids" ref={scrollRef} onScroll={handleScroll}>
             {stories.map(({ src, caption }) => (
               <div className="vid" key={src}>
                 <video
@@ -37,6 +57,16 @@ export function StoriesSection() {
                   <div className="nm story-caption" style={{ pointerEvents: "none" }}>&quot;{caption}&quot;</div>
                 </div>
               </div>
+            ))}
+          </div>
+          <div className="carousel-dots">
+            {stories.map((_, i) => (
+              <button
+                key={i}
+                className={`carousel-dot${i === activeIndex ? " active" : ""}`}
+                onClick={() => goTo(i)}
+                aria-label={`Go to video ${i + 1}`}
+              />
             ))}
           </div>
         </Reveal>
