@@ -380,7 +380,8 @@ header.nav {
   border-radius: 28px;
   overflow: hidden;
   background: var(--teal-deep);
-  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  aspect-ratio: 16 / 18;
   box-shadow: 0 34px 76px -38px rgba(18, 110, 110, 0.82);
   border: 1px solid rgba(255, 255, 255, 0.42);
 }
@@ -736,7 +737,7 @@ header.nav {
 
 .badge-soft {
   display: inline-block;
-  background: #fce9e3;
+  border: 2px solid #42c8c8;
   color: var(--coral-deep);
   font-size: 12.5px;
   font-weight: 700;
@@ -750,7 +751,7 @@ header.nav {
 .women-visual,
 .doc-photo {
   border-radius: 22px;
-  aspect-ratio: 4 / 4.4;
+  aspect-ratio: 3.1 / 4;
   display: flex;
   align-items: center;
   justify-content: center;

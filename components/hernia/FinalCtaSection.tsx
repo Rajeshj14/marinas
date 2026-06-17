@@ -17,7 +17,7 @@ export function FinalCtaSection() {
             evaluation will.
           </h2>
           <p>
-            Reserve your consultation with Dr. Marina's and finally understand
+            Reserve your consultation with Dr. Preethi Mrinalini and finally understand
             your condition - before it affects your quality of life.
           </p>
           <a href="#" className="btn">

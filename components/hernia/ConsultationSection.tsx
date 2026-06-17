@@ -37,7 +37,7 @@ export function ConsultationSection() {
       <div className="wrap">
         <Reveal className="consult-grid">
           <div>
-            <span className="eyebrow">Your consultation with Dr. Marina's </span>
+            <span className="eyebrow">Your consultation with Dr. Preethi Mrinalini </span>
             <h2 className="section-title">
               For people serious about understanding their condition.
             </h2>

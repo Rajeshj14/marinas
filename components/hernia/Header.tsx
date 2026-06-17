@@ -12,8 +12,8 @@ export function Header() {
         <div className="nav-in">
           <div className="brand">
             <Image
-              src="/Marina-logo.png"
-              alt="Marina's Clinic"
+              src="https://res.cloudinary.com/dthj7fakc/image/upload/v1781681465/logo-marinas_lm71bk.png"
+              alt="Preethi Mrinalini Clinic"
               width={130}
               height={52}
               style={{ objectFit: "contain" }}

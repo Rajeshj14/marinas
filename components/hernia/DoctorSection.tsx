@@ -9,21 +9,22 @@ export function DoctorSection() {
       <div className="wrap">
         <Reveal className="doc-grid">
           <div className="doc-photo">
-            <div className="ph">
-              <span className="ic">Dr</span>
-              [ Add Dr. Marina's &apos;s
-              <br />
-              professional photo here ]
+            <div className="ph" style={{ display: "flex", alignItems: "center", justifyContent: "center",minHeight: "620px" }}>
+              <img
+                src="https://res.cloudinary.com/dthj7fakc/image/upload/v1781681953/dr-preethi-mrinalini_wmgdmk.webp"
+                alt="Dr. Preethi Mrinalini"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "bottom", borderRadius: "inherit" }}
+              />
             </div>
           </div>
           <div>
             <span className="eyebrow">Meet your surgeon</span>
-            <h2>Dr. Marina's </h2>
+            <h2>Dr. Preethi Mrinalini </h2>
             <div className="doc-role">
               Advanced Laparoscopic &amp; Hernia Surgeon
             </div>
             <p className="bio">
-              Over the years, Dr. Marina's has helped patients with hernia and
+              Over the years, Dr. Preethi Mrinalini has helped patients with hernia and
               abdominal wall conditions understand their diagnosis and explore
               modern treatment options - using advanced laparoscopic, minimally
               invasive approaches focused on safety, recovery and long-term

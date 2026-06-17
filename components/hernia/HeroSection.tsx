@@ -40,15 +40,14 @@ export function HeroSection() {
 
         <div className="vsl">
           <div className="vsl-bg" />
-          <span className="vsl-tag">Play Watch first</span>
+          <span className="vsl-tag">Watch first</span>
           <div className="vsl-inner">
-            <div className="play" role="button" aria-label="Play video">
-              <PlayIcon size={26} />
-            </div>
-            <div className="vsl-label">What to do about your hernia</div>
-            <div className="vsl-cap">
-              [ Embed your VSL here - replace this placeholder block ]
-            </div>
+            <video
+              src="https://res.cloudinary.com/dthj7fakc/video/upload/v1781681469/Postpartum_weight_gain_100__normal_️_WATCH_FULLY__._._.__Laparoscopy__Surgeon__Doctor__Pregnancy__Women_MP4_wfpgnl.mp4"
+              controls
+              playsInline
+              style={{ width: "100%", borderRadius: "inherit", display: "block" }}
+            />
           </div>
         </div>
       </div>

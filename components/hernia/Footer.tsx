@@ -8,8 +8,8 @@ export function Footer() {
           <div className="brand">
             <div style={{ background: "#fff", borderRadius: 10, padding: "6px 10px", display: "inline-flex", alignItems: "center" }}>
               <Image
-                src="/Marina-logo.png"
-                alt="Marina's Clinic"
+                src="https://res.cloudinary.com/dthj7fakc/image/upload/v1781681953/Marina-logo_v7lcbn.png"
+                alt="Preethi Mrinalini Clinic"
                 width={120}
                 height={48}
                 style={{ objectFit: "contain" }}
@@ -31,7 +31,7 @@ export function Footer() {
           verified content before publishing.
         </p>
         <p className="disc" style={{ marginTop: 14 }}>
-          Copyright 2026 Dr. Marina&apos;s. All rights reserved.
+          Copyright 2026 Dr.Preethi Mrinalini. All rights reserved.
         </p>
       </div>
     </footer>

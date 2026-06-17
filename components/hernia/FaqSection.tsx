@@ -10,7 +10,7 @@ const faqs = [
   ],
   [
     "I am scared of surgery. Is this consultation just a sales pitch for it?",
-    "The consultation is about understanding your condition first. Dr. Marina's explains what type of hernia you have and your options in plain language. Surgical guidance is only discussed if it is genuinely the right step for you.",
+    "The consultation is about understanding your condition first. Dr. Preethi Mrinalini explains what type of hernia you have and your options in plain language. Surgical guidance is only discussed if it is genuinely the right step for you.",
   ],
   [
     "I think my belly is just post-pregnancy fat. Should I still come?",

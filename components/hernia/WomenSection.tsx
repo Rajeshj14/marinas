@@ -16,11 +16,12 @@ export function WomenSection() {
       <div className="wrap">
         <Reveal className="women-grid">
           <div className="women-visual">
-            <div className="ph">
-              <span className="ic">W</span>
-              [ Add a warm, reassuring patient
-              <br />
-              or illustration image here ]
+            <div className="ph" style={{ overflow: "hidden" }}>
+              <img
+                src="/herina.png"
+                alt="Women patient"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", borderRadius: "inherit", display: "block" }}
+              />
             </div>
           </div>
           <div>
