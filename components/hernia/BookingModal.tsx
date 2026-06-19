@@ -3,11 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 
 type Form = { name: string; email: string; phone: string; concern: string };
+type Status = "idle" | "loading" | "error";
 
 export function BookingModal() {
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState<Form>({ name: "", email: "", phone: "", concern: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
   const firstRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -45,9 +48,30 @@ export function BookingModal() {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   }
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus("loading");
+    setErrorMsg("");
+    try {
+      const res = await fetch("/api/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          source: "Hernia-LP",
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          concern: form.concern,
+          pageUrl: window.location.href,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSubmitted(true);
+    } catch {
+      setErrorMsg("Something went wrong. Please try again.");
+    } finally {
+      setStatus("idle");
+    }
   }
 
   if (!open) return null;
@@ -136,8 +160,9 @@ export function BookingModal() {
                 />
               </div>
 
-              <button type="submit" className="btn modal-submit">
-                Request my consultation slot
+              {errorMsg && <p className="modal-error">{errorMsg}</p>}
+              <button type="submit" className="btn modal-submit" disabled={status === "loading"}>
+                {status === "loading" ? "Sending…" : "Request my consultation slot"}
               </button>
               <p className="modal-fine">We will call you to confirm the appointment time.</p>
             </form>

@@ -1715,6 +1715,16 @@ footer .disc b {
   text-align: center;
   margin-top: -4px;
 }
+.modal-error {
+  font-size: 13px;
+  color: #d32f2f;
+  text-align: center;
+  margin-top: -4px;
+}
+.modal-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
 
 .modal-success {
   text-align: center;
